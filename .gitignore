@@ -4,6 +4,7 @@
 # Built application files
 *.apk
 *.ap_
+Keys/
 
 # Files for the Dalvik VM
 *.dex
