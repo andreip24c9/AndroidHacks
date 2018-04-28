@@ -2,3 +2,5 @@ Android O removed install from unknown sources, now each app can install other a
 malllwarea app android 4.4 maybe doesn't request permission
 singling with OEM key for silent instalation - works only on certain devices however we can make the same aplication under the branding of the certain device and target the posibility of instalation on specific harware
 company devices silent instalation is posiible through the network
+aticales about autoroot and other malware saved in brower favourites
+for accesibility -> create a service, mark it as google service, request good reason to start the service, debug to get view id's, change layour when pane installs to hide obvious facts from the user, click the install button and wait until the installation finished.

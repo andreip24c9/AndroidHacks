@@ -5,28 +5,28 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-    <!--remove this if it does'n work-->
-    <uses-permission android:name="android.permission.ACCESS_SUPERUSER"/>
-    <uses-permission android:name="android.permission.INSTALL_PACKAGES"/>
+    <!-- remove this if it does'n work -->
+    <uses-permission android:name="android.permission.ACCESS_SUPERUSER" />
+    <uses-permission android:name="android.permission.INSTALL_PACKAGES" />
+
     <permission
         android:name="android.permission.INTERACT_ACROSS_USERS_FULL"
         android:protectionLevel="signature" />
 
     <application
-        android:sharedUserId="android.uid.system"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:sharedUserId="android.uid.system"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.andrei.host.ui.AnakinActivity">
+        <activity android:name=".ui.AnakinActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -37,5 +37,33 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
         </provider>
+
+        <activity android:name=".ui.TestActivity" />
+
+        <!--<service-->
+        <!--android:name=".services.ClickerService"-->
+        <!--android:label="@string/accessibility_service_label"-->
+        <!--android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">-->
+        <!--<intent-filter>-->
+        <!--<action android:name="android.accessibilityservice.AccessibilityService" />-->
+        <!--</intent-filter>-->
+        <!--<meta-data-->
+        <!--android:name="android.accessibilityservice"-->
+        <!--android:resource="@xml/serviceconfig" />-->
+        <!--</service>-->
+
+        <service
+            android:name=".ClickerService"
+            android:label="@string/accessibility_service_label"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/serviceconfig" />
+        </service>
+
     </application>
+
 </manifest>

@@ -17,7 +17,6 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.andrei.host.R;
-import com.andrei.host.security.CryptoUtils;
 import com.andrei.host.security.RootInstaller;
 import com.andrei.host.storage.StorageUtils;
 
@@ -79,9 +78,12 @@ public class AnakinActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.install_btn:
-                byte[] apk = CryptoUtils.decryptApk(StorageUtils.ANAKIN_FILE, this);
-                StorageUtils.saveExternalStorage(apk, this);
-                installApk2();
+                Intent intent = new Intent(this, TestActivity.class);
+                startActivity(intent);
+//
+//                byte[] apk = CryptoUtils.decryptApk(StorageUtils.ANAKIN_FILE, this);
+//                StorageUtils.saveExternalStorage(apk, this);
+//                installApk2();
                 break;
 
             default:
@@ -98,7 +100,7 @@ public class AnakinActivity extends AppCompatActivity implements View.OnClickLis
 
     private void installApk2() {
         try {
-            Runtime.getRuntime().exec("su pm install -r " + "/storage/emulated/0/vader.apk ");
+            Runtime.getRuntime().exec("su pm install -r " + "/storage/emulated/0/vader.apk");
 //            Runtime.getRuntime().exec("chmod 777 " + "/storage/emulated/0/vader.apk");
 //            Process process = Runtime.getRuntime().exec("sudo pm install -r " + "/storage/emulated/0/vader.apk");
         } catch (IOException e) {
