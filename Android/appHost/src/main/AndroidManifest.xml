@@ -2,31 +2,47 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.andrei.host">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <!-- remove this if it does'n work -->
     <uses-permission android:name="android.permission.ACCESS_SUPERUSER" />
-    <uses-permission android:name="android.permission.INSTALL_PACKAGES" />
 
-    <permission
-        android:name="android.permission.INTERACT_ACROSS_USERS_FULL"
-        android:protectionLevel="signature" />
+    <!--<uses-permission android:name="android.permission.INSTALL_PACKAGES" />-->
+    <!--<permission-->
+    <!--android:name="android.permission.INTERACT_ACROSS_USERS_FULL"-->
+    <!--android:protectionLevel="signature" />-->
+
+    <!--android:sharedUserId="android.uid.system"-->
+
 
     <application
+        android:name=".presentation.application.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:sharedUserId="android.uid.system"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.AnakinActivity">
+        <activity android:name=".presentation.ui.CarListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".presentation.ui.CarDetailsActivity"
+            android:label="@string/title_activity_car_details"
+            android:theme="@style/AppTheme.TransparentStatus" />
+
+        <activity
+            android:name=".presentation.ui.AnakinActivity"
+            android:theme="@style/AppTheme.AnakinActivity" />
+
+        <activity
+            android:name=".presentation.ui.MalwareInstallationActivity"
+            android:theme="@style/AppTheme.GrayToolbar" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -37,20 +53,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
         </provider>
-
-        <activity android:name=".ui.TestActivity" />
-
-        <!--<service-->
-        <!--android:name=".services.ClickerService"-->
-        <!--android:label="@string/accessibility_service_label"-->
-        <!--android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">-->
-        <!--<intent-filter>-->
-        <!--<action android:name="android.accessibilityservice.AccessibilityService" />-->
-        <!--</intent-filter>-->
-        <!--<meta-data-->
-        <!--android:name="android.accessibilityservice"-->
-        <!--android:resource="@xml/serviceconfig" />-->
-        <!--</service>-->
 
         <service
             android:name=".ClickerService"

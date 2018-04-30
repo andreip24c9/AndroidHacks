@@ -1,0 +1,16 @@
+<resources>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_medium">12dp</dimen>
+    <dimen name="margin_default">16dp</dimen>
+    <dimen name="margin_extra_large">96dp</dimen>
+
+    <dimen name="row_height">86dp</dimen>
+
+    <dimen name="text_size_default">13sp</dimen>
+    <dimen name="text_size_normal">16sp</dimen>
+    <dimen name="text_size_large">17sp</dimen>
+    <dimen name="text_size_extra_large">21sp</dimen>
+
+    <dimen name="car_details_img_height">280dp</dimen>
+    <dimen name="car_grid_image_height">200dp</dimen>
+</resources>

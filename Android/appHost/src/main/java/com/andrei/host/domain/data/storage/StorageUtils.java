@@ -1,4 +1,4 @@
-package com.andrei.host.storage;
+package com.andrei.host.domain.data.storage;
 
 import android.content.Context;
 import android.net.Uri;

