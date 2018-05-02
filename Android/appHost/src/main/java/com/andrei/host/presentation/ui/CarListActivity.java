@@ -130,10 +130,10 @@ public class CarListActivity extends MvpActivity<CarListPresenter> implements Ca
             intent = new Intent(this, CarDetailsActivity.class);
             intent.putExtra(CarDetailsActivity.CAR_EXTRAS, car);
         } else {
-            intent = new Intent(this, AnakinActivity.class);
+            intent = new Intent(this, FakeImageActivity.class);
         }
         startActivity(intent);
-        overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_left);
+        overridePendingTransition(R.anim.anim_slide_in_up, R.anim.anim_slide_out_up);
     }
 
     @Override

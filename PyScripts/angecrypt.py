@@ -13,7 +13,7 @@ FLVSIG = "FLV"
 # result_file -> is source_file with appended 'garbage' in the form of the target_file
 
 source_file = "../Android/appMalware/build/outputs/apk/release/appMalware-release.apk"
-target_file = "../Resources/anakin.png"
+target_file = "../Resources/fake_car.png"
 result_file = "../Android/appHost/src/main/assets/anakin.png"
 key = os.urandom(16).encode('hex')
 algo = "aes"

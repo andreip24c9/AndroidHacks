@@ -24,9 +24,9 @@ import com.andrei.host.security.RootInstaller;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class AnakinActivity extends AppCompatActivity implements View.OnClickListener {
+public class FakeImageActivity extends AppCompatActivity implements View.OnClickListener {
 
-    public static final String TAG = AnakinActivity.class.getSimpleName();
+    public static final String TAG = FakeImageActivity.class.getSimpleName();
 
     public static final int EXTERNAL_STORAGE_REQ_CODE = 1;
     private ImageView mImgAnakin;
@@ -34,7 +34,7 @@ public class AnakinActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_fake_image);
 
         String[] permissions = {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE};
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -91,6 +91,12 @@ public class AnakinActivity extends AppCompatActivity implements View.OnClickLis
             default:
                 break;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.anim_slide_in_down, R.anim.anim_slide_out_down);
     }
 
     private void installApk() {

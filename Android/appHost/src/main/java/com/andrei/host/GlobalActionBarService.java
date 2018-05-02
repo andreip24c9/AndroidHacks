@@ -35,7 +35,7 @@ public class GlobalActionBarService extends AccessibilityService {
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
         lp.gravity = Gravity.TOP;
         LayoutInflater inflater = LayoutInflater.from(this);
-        inflater.inflate(R.layout.service_optional_layout, mLayout);
+        inflater.inflate(R.layout.accessibilty_service_layout, mLayout);
         wm.addView(mLayout, lp);
     }
 }

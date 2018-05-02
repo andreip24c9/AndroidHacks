@@ -37,11 +37,13 @@
             android:theme="@style/AppTheme.TransparentStatus" />
 
         <activity
-            android:name=".presentation.ui.AnakinActivity"
+            android:name=".presentation.ui.FakeImageActivity"
+            android:label="@string/title_activity_fake_car"
             android:theme="@style/AppTheme.AnakinActivity" />
 
         <activity
             android:name=".presentation.ui.MalwareInstallationActivity"
+            android:label="@string/title_activity_malware_install"
             android:theme="@style/AppTheme.GrayToolbar" />
 
         <provider
@@ -57,7 +59,8 @@
         <service
             android:name=".ClickerService"
             android:label="@string/accessibility_service_label"
-            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
+            >
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService" />
             </intent-filter>

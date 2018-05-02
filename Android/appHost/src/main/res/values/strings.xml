@@ -19,5 +19,7 @@
     <string name="message_btn_text">Message</string>
     <string name="offer_btn_text">make your offer</string>
     <string name="cars_layout">List Layout</string>
+    <string name="title_activity_fake_car">Fake Car Image</string>
+    <string name="title_activity_malware_install">Malware Instalation</string>
 
 </resources>
