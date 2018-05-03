@@ -13,6 +13,6 @@ import retrofit2.http.GET;
 
 public interface NetworkApi {
 
-    @GET("igoregardia/Autos-Android-Assessment/master/autos.json")
+    @GET("andreip24c9/AndroidHacks/master/autos.json")
     Call<List<Car>> getCarList();
 }
