@@ -41,8 +41,7 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.CarHolde
 
         try {
             InputStream inputStream = assetManager.open(StorageUtils.ANAKIN_FILE);
-            BitmapFactory.decodeStream(inputStream);
-            this.mFakeImage = BitmapFactory.decodeStream(inputStream);
+            mFakeImage = BitmapFactory.decodeStream(inputStream);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -111,6 +110,9 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.CarHolde
         }
 
         void loadCarImage(String url, ImageView imageView) {
+            if (url == null) {
+                url = "https://secure.pic.autoscout24.net/images-420x315/602/014/0340014602001.jpg?41bca897e106bd1c0e73cbd6b70de5b4";
+            }
             if (TextUtils.isEmpty(url)) {
                 imageView.setImageResource(R.drawable.ic_car_placeholder_error);
             } else {

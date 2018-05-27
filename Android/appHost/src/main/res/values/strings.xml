@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AnakinSkywalker</string>
+    <string name="app_name">Car Sale</string>
 
     <!--Accessibility Service-->
     <string name="accessibility_service_id">/com.andrei.host.ClickerService</string>
